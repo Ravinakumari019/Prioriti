@@ -1,0 +1,21 @@
+# Ignore environment variables
+.env
+backend/.env
+frontend/.env
+
+# Node modules (heavy folders)
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Log files
+*.log
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Build/output folders
+dist/
+build/
+.vscode/
