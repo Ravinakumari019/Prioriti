@@ -7,13 +7,13 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
-
+const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 // CONNECT  DB
 connectDB();
 
-//Middleware to handle cors
+//Middleware to handle cors //frontend and backend communication
 app.use(
 cors({
     origin:process.env.CLIENT_URL || "*",
@@ -30,7 +30,7 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-// app.use("/api/report", reportRoutes);
+app.use("/api/report", reportRoutes);
 app.use("/api/tasks", taskRoutes);
 
 

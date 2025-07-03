@@ -1,10 +1,12 @@
-// const express = require('express');
+const express = require('express');
+const { protect, adminOnly } = require('../middlewares/authMiddleware');
+const {
+  exportTasksReport,
+  exportUsersReport
+} = require('../controllers/reportController');
+const router = express.Router();
 
-// const router = express.Router();
+router.get('/export/tasks', protect, adminOnly, exportTasksReport); // Export all tasks as an Excel file
+router.get('/export/users', protect, adminOnly, exportUsersReport); // Export user-task
 
-// // user Management Routes
-// router.get("/", protect, adminOnly, getUsers); // Get all users admin only
-// router.get("/:id", protect, getUserById); // Get user by ID
-// router.delete("/:id", protect, adminOnly, deleteUser); // Delete user by ID
-
-// module.exports = router;
+module.exports = router;
